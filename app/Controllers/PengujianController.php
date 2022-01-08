@@ -48,6 +48,10 @@ class PengujianController extends ResourceController
         $deskripsiModel = new DeskripsiModel();
         $deskripsi = $deskripsiModel->where($where)->first();
 
+        if (empty($deskripsi['keterangan'])) {
+            $deskripsi['keterangan'] = '-';
+        }
+
         $html =  "<div class=\"text-center d-flex align-items-center justify-content-center\">
         <div class=\"\">
             <h1 class=\"text-center\">Kesimpulan</h1>
